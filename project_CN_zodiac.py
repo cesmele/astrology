@@ -16,8 +16,8 @@ class chinese_zodiac():
         key=year%12
         self.animal=(zodiac[key])
     def __repr__(self):
-        return f"{self.animal}, {self.compatibility(self.animal)}"
-    def compatibility(self,animal):
+        return f"{self.animal}"
+    def compatibility(self):
         compat={"Monkey":{"Best":("Ox", "Rabbit"),"Worst":("Tiger", "Pig")},
                 "Rooster":{"Best":("Ox, Snake"),"Worst":("Rat, Rabbit, Horse, Rooster, Dog")},
                 "Dog":{"Best":("Rabbit"),"Worst":("Dragon, Sheep, Rooster")},
@@ -31,9 +31,5 @@ class chinese_zodiac():
                 "Horse":{"Best":("Tiger, Sheep, Rabbit"),"Worst":("Rat, Ox, Rooster, Horse")},
                 "Sheep":{"Best":("Horse, Rabbit, Pig"),"Worst":("Ox, Tiger, Dog")}
         }
-        a=(str(compat[animal]).replace("{","").replace("}", ""))
-        return f"Compatibility for {animal} is {str(a)}"
-    
-print(chinese_zodiac(2001))
-        
-        
+        a=(str(compat[self.animal]).replace("{","").replace("}", ""))
+        return f"Compatibility for {self.animal} is {str(a)}"
