@@ -32,4 +32,8 @@ class chinese_zodiac():
                 "Sheep":{"Best":("Horse, Rabbit, Pig"),"Worst":("Ox, Tiger, Dog")}
         }
         a=(str(compat[self.animal]).replace("{","").replace("}", ""))
-        return f"Compatibility for {self.animal} is {str(a)}"
+        a=a.replace("'", "")
+        return f"Compatibility for {self.animal} is {(a)}"
+    
+        
+        
