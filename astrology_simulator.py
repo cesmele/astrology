@@ -64,31 +64,50 @@ class User:
       raise ValueError("Improper age range selected.")
       
 class People:
+  """Creates People
+  
+  Attributes:
+    catalog(dict):  A dictionary of names and their respective age, zodiac, chinese_zodiac, email, matches, inbox
+  """
     
     #takes a file path and forms a catalog with each person having their own info
-    def __init__(self, path):
+  def __init__(self, path):
+    """Initializes People
+
+    Args:
+      path (str): a str containing the path of the people information file to read
+    """
         
-        self.catalog = {}
-        with open(path, "r", encoding = "utf-8") as f:
-            for line in f:
-                line = line.strip()
-                split_line = line.split(",")
-                name = split_line[0]
-                birthday = split_line[1]
-                email = split_line[2]
-                birth_data_file = date_iterator(birthday)
-                month = int(birth_data_file[0])
-                day = int(birth_data_file[1])
-                year = int(birth_data_file[2])
-                zodiac = zodiac_convert(month, day)
-                chinese_zodiac = chinese_zodiac_convert(year)
-                age = age_convert(year, month, day) #creates age
-                matches = [] # a place to hold matches
-                inbox = [] #a place to hold messages  
-                self.catalog[name] = [age, zodiac, chinese_zodiac, email, matches, inbox]
+    self.catalog = {}
+    with open(path, "r", encoding = "utf-8") as f:
+      for line in f:
+          line = line.strip()
+          split_line = line.split(",")
+          name = split_line[0]
+          birthday = split_line[1]
+          email = split_line[2]
+          birth_data_file = date_iterator(birthday)
+          month = int(birth_data_file[0])
+          day = int(birth_data_file[1])
+          year = int(birth_data_file[2])
+          zodiac = zodiac_convert(month, day)
+          chinese_zodiac = chinese_zodiac_convert(year)
+          age = age_convert(year, month, day) #creates age
+          matches = [] # a place to hold matches
+          inbox = [] #a place to hold messages  
+          self.catalog[name] = [age, zodiac, chinese_zodiac, email, matches, inbox]
           
 def age_convert(year, month, day):
-  """creates age based on birthday"""
+  """creates age based on birthday
+
+  Args:
+      year (int): year of date of birth
+      month (int): month of date of birth
+      day (int): day of date of birth
+
+  Returns:
+      int: age of the person
+  """
   
   today = date.today()
   birthday = date(year, month, day)
@@ -98,15 +117,20 @@ def age_convert(year, month, day):
           
 def date_iterator(date):
     
-    """grabs month day and year from a date"""
-    
-    date.split("/")
-    date_split = date.split("/")
-    month = date_split[0]
-    day = date_split[1]
-    year = date_split[2]
-                
-    return month, day, year
+  """grabs month day and year from a date
+  Args:
+    date(str): date read in   
+
+  Returns:
+      tuple: int of month, day, year from date
+  """
+  date.split("/")
+  date_split = date.split("/")
+  month = date_split[0]
+  day = date_split[1]
+  year = date_split[2]
+              
+  return month, day, year
         
 def zodiac_convert(month, day):
 
@@ -199,42 +223,67 @@ def compatibilities(zodiacsign):
         return "Aries", "Leo"   
              
 def chinese_zodiac_convert(year):
-        zodiac={0:"Monkey",
-                1:"Rooster",
-                2:"Dog",
-                3:"Pig",
-                4:"Rat",
-                5:"Ox",
-                6:"Tiger",
-                7:"Rabbit",
-                8:"Dragon",
-                9:"Snake",
-                10:"Horse",
-                11:"Sheep"
-                }
-        key= int(year)%12
-        return zodiac[key]
+  """Matches birth year to respective animal
+
+  Args:
+      year (str or int): birth year of a person
+
+  Returns:
+      str: animal matching the birth year
+  """
+  zodiac={0:"Monkey",
+          1:"Rooster",
+          2:"Dog",
+          3:"Pig",
+          4:"Rat",
+          5:"Ox",
+          6:"Tiger",
+          7:"Rabbit",
+          8:"Dragon",
+          9:"Snake",
+          10:"Horse",
+          11:"Sheep"
+          }
+  key= int(year)%12
+  return zodiac[key]
         
 def chinese_zodiac_compatibilities(chinese_zodiac_sign):
+  """Gives the best compatible chinese zodiac for the respective animal
+
+  Args:
+      chinese_zodiac_sign (str): zodiac animal of the person
+
+  Returns:
+     tuple: collection of strings containing the compatible animals
+  """
     
-    CZ_best={"Monkey":("Ox", "Rabbit"),
-                "Rooster":("Ox", "Snake"),
-                "Dog":("Rabbit"),
-                "Pig":("Tiger", "Rabbit", "Sheep"),
-                "Rat":("Ox", "Dragon", "Monkey"),
-                "Ox":("Rat", "Snake", "Rooster"),
-                "Tiger":("Dragon", "Horse", "Pig"),
-                "Rabbit":("Sheep", "Monkey", "Dog", "Pig"),
-                "Dragon":("Rooster", "Rat", "Monkey"),
-                "Snake":("Dragon", "Rooster"),
-                "Horse":("Tiger", "Sheep", "Rabbit"),
-                "Sheep":("Horse", "Rabbit", "Pig"),
-        }
-    
-    
-    return CZ_best[chinese_zodiac_sign]
+  CZ_best={"Monkey":("Ox", "Rabbit"),
+              "Rooster":("Ox", "Snake"),
+              "Dog":("Rabbit"),
+              "Pig":("Tiger", "Rabbit", "Sheep"),
+              "Rat":("Ox", "Dragon", "Monkey"),
+              "Ox":("Rat", "Snake", "Rooster"),
+              "Tiger":("Dragon", "Horse", "Pig"),
+              "Rabbit":("Sheep", "Monkey", "Dog", "Pig"),
+              "Dragon":("Rooster", "Rat", "Monkey"),
+              "Snake":("Dragon", "Rooster"),
+              "Horse":("Tiger", "Sheep", "Rabbit"),
+              "Sheep":("Horse", "Rabbit", "Pig"),
+      }
+  
+  
+  return CZ_best[chinese_zodiac_sign]
   
 def match_range(user, dictionary):
+  """gets a dictionary of people that are in the wanted age range
+  
+  Args:
+    user(User): a User object
+    dictionary(dict): a dictionary of People
+  
+  Returns:
+    dict: a dictionary of people that matches the wanted age range
+  """  
 
   matched_ranges = {}
   if user.range == "18-25":
@@ -288,6 +337,15 @@ def match_cnzodiac(user, dictionary):
   return match_dictionary
 
 def show_matches(zodiac, chinese_zodiac):
+  """show compatible zodiacs
+
+  Args:
+      zodiac (str): western zodiac
+      chinese_zodiac (str): chinese zodiac
+  
+  Side effects
+    prints user's two zodiacs and their compatible zodiacs
+  """
   zodiac_compatibility = compatibilities(zodiac)
   cn_compatability = chinese_zodiac_compatibilities(chinese_zodiac)
   print(f"Your signs: {zodiac}, {chinese_zodiac}")
@@ -295,6 +353,16 @@ def show_matches(zodiac, chinese_zodiac):
   print(f"Your chinese zodiac matches are: {cn_compatability}")
   
 def match(user, dictionary):
+  """match user to people with compatible zodiacs
+
+  Args:
+      user (User): a User object
+      dictionary (dict): dictionary of potential matches
+  
+  Side effects:
+      prints people with compatible zodiacs, and lets user send a request to them.
+
+  """
   show_matches(user.zodiac, user.chinese_zodiac)
   range_match = match_range(user, dictionary)
   zodiac_match = match_zodiac(user, range_match)
@@ -351,8 +419,19 @@ def get_email(name, catalog):
     raise KeyError("Name not found")
 
 def send_message(user, name, email, catalog):
+  """sends a message to a person in the catalog and add it to their inbox
+
+  Args:
+      user (User): a user object
+      name (str): message recipient
+      email (str): email of message recipient
+      catalog (dict): dictionary of people
   
-  #sends a message to a person in the catalog and add it to their inbox
+  Side effects:
+      prints prompt and send friend request
+  """
+  
+  
   
   message = input(f"Send a messsage/friend request to {name}: ")
   
