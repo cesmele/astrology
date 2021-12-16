@@ -14,13 +14,13 @@ Running this program in the command line:
 
     • to run this program, be sure both astrology_simulator and people.txt are downloaded
     • open your computer terminal with the folder containing the 2 files and type in the
-    following the enter:
+    following then enter:
         - for mac: python3 astrology_simulator.py people.txt
         - for windows: python astrology_simulator.py people.txt
     • complete the directions shown in the terminal after the program runs
         - ensure you type in exact directions and formats
         - be aware there is pausetimes in between certain outputs
-    • the program's runtime is complete whenyour response to your match request returns
+    • the program's runtime is complete when your response to your match request returns
     a denial of a friend request or an acceptance of a request following with your match's
     information
 
