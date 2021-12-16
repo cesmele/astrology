@@ -26,4 +26,4 @@ Running this program in the command line:
 
 Bibliography:
 
-    • no resources outside of the INST326 course has been used.
+    • no resources were used in the making of this program
