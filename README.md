@@ -26,4 +26,4 @@ Running this program in the command line:
 
 Bibliography:
 
-    • no resources were used in the making of this program
+    • no outside resources were used in the making of this program
