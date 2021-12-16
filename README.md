@@ -26,4 +26,10 @@ Running this program in the command line:
 
 Bibliography:
 
-    • no outside resources were used in the making of this program
+    Ancestry. Name Census. (n.d.). Retrieved December 16, 2021, from https://namecensus.com/last-names/ 
+
+    Auto fill dates. Microsoft Support. (n.d.). Retrieved December 16, 2021, from https://support.microsoft.com/en-us/office/create-a-list-of-sequential-dates-aa1c0fa7-c76a-4762-8bc9-46f1691defec 
+
+       Mohammad, A. (2020, September 24). Zodiac signs dates: How to find out what is my zodiac sign? Business. Retrieved December 16, 2021, from https://ipsnews.net/business/2020/09/24/zodiac-signs-dates-how-to-find-out-what-is-my-zodiac-sign/ 
+
+    What is the luckiest/unluckiest Chinese zodiac sign? 12 Zodiac Signs, Horoscope, Compatibility. (n.d.). Retrieved December 16, 2021, from https://www.chinahighlights.com/travelguide/chinese-zodiac/ 
