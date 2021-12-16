@@ -13,8 +13,8 @@ Files needed from the repository and their purpose:
 Running this program in the command line:
 
     • to run this program, be sure both astrology_simulator and people.txt are downloaded
-    • open your computer terminal with the folder containing the 2 files can type in the
-    following:
+    • open your computer terminal with the folder containing the 2 files and type in the
+    following the enter:
         - for mac: python3 astrology_simulator.py people.txt
         - for windows: python astrology_simulator.py people.txt
     • complete the directions shown in the terminal after the program runs
